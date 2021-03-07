@@ -1,0 +1,31 @@
+/* .bg-light {
+    background-color: #0014F5 !important;
+} */
+
+.nav-link {
+    color: white !important;
+}
+
+#Search {
+    width: 550px;
+    border-radius: 15px;
+    margin-left: 100px;
+}
+
+.card > img {
+    width: 420px;
+    height: 200px;
+}
+
+
+#Infocursos{
+    background-color: #0d9afa5c;
+    /* width: 1536px; */
+    width: auto;
+    height: 270px;
+}
+
+#Slides > button{
+    background-color: #00000040;
+    border-radius: 15px;
+}

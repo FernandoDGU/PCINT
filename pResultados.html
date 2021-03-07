@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de la búsqueda</title>
+
+    <!-- Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+        crossorigin="anonymous"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/pResultados.css">
+</head>
+
+<body>
+    <!-- Navar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color: white;">Nombre de la página</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                            id="Search">
+                        <button class="btn btn-secondary btn-outline-dark " type="submit">Search</button>
+                    </form>
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Categorias
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Curso</a></li>
+                            <li><a class="dropdown-item" href="#">Categoria</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Escuela</a></li>
+                        </ul>
+                    </li> -->
+                    <select class="form-select" id="inputGroupSelect01">
+                        <option value="1">Curso</option>
+                        <option value="2">Categoria</option>
+                        <option value="3">Escuela</option>
+                      </select>
+
+                </ul>
+
+            </div>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Quiero enseñar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicia sesión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Registrate</a>
+                </li>
+            </ul>
+        </div>
+
+
+    </nav>
+    <br>
+    <div class="container col-lg-12" style="margin-right: 180px;">
+        <h1>Resultados de la busqueda: 10</h1>
+
+    </div>
+
+
+    <div class="container" style="margin-right: 180px;">
+       
+        <div class="row">
+            <div class="col-lg-4" style="margin-top: 10px;">
+                <p class="fst-normal">Otras categorias que te pueden interesar:</p>
+                <ol class="list-group">
+                    <li class="list-group-item">Python</li>
+                    <li class="list-group-item">Machine Learning</li>
+                    <li class="list-group-item">Unreal Engine</li>
+                    <li class="list-group-item">Data Structures</li>
+                    <li class="list-group-item">C#</li>
+                    <li class="list-group-item">Java</li>
+                    <li class="list-group-item">Object Oriented Programming</li>
+                    <li class="list-group-item">Arduino</li>
+                    <li class="list-group-item">Blender</li>
+                    <li class="list-group-item">Maya</li>
+                    <li class="list-group-item">Big Data</li>
+                    <li class="list-group-item">SQL</li>
+                </ol>
+            </div>
+            <div class="col-lg-8">
+                <div class="container" id="rBusqueda">
+
+                    <!-- <div class="card-group"> -->
+                    <hr>
+                    <div class="row">
+                        <div
+                            class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
+
+                            <img src="https://cdna.artstation.com/p/assets/images/images/013/437/556/large/clark-coots-screenshot033.jpg?1539614738"
+                                class="img-fluid img-thumbnail" style="border:4px outset #770CF5">
+                        </div>
+
+                        <div class="col-lg-6 col-sm-12">
+                            <p><strong class="align-middle">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    Fuga, debitis.</strong></p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi praesentium libero.
+                            </p>
+                            <small class="text-muted">Lorem, ipsum dolor.</small>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-sm-12 text-center d-flex flex-column justify-content-center align-items-center">
+                            <small class="text-muted">Precio:</small>
+                            <h3><strong>$150.00</strong></h3>
+                        </div>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="row">
+                        <div
+                            class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
+
+                            <img src="https://cdna.artstation.com/p/assets/images/images/013/437/556/large/clark-coots-screenshot033.jpg?1539614738"
+                                class="img-fluid img-thumbnail" style="border:4px outset #770CF5">
+                        </div>
+
+                        <div class="col-lg-6 col-sm-12">
+                            <p><strong class="align-middle">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    Fuga, debitis.</strong></p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi praesentium libero.
+                            </p>
+                            <small class="text-muted">Lorem, ipsum dolor.</small>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-sm-12 text-center d-flex flex-column justify-content-center align-items-center">
+                            <small class="text-muted">Precio:</small>
+                            <h3><strong>$150.00</strong></h3>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div
+                            class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
+
+                            <img src="https://cdna.artstation.com/p/assets/images/images/013/437/556/large/clark-coots-screenshot033.jpg?1539614738"
+                                class="img-fluid img-thumbnail" style="border:4px outset #770CF5">
+                        </div>
+
+                        <div class="col-lg-6 col-sm-12">
+                            <p><strong class="align-middle">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    Fuga, debitis.</strong></p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit modi praesentium libero.
+                            </p>
+                            <small class="text-muted">Lorem, ipsum dolor.</small>
+                        </div>
+
+                        <div
+                            class="col-lg-4 col-sm-12 text-center d-flex flex-column justify-content-center align-items-center">
+                            <small class="text-muted">Precio:</small>
+                            <h3><strong>$150.00</strong></h3>
+                        </div>
+                    </div>
+                    <hr>
+                    <!-- <div class="card mb-3" style="width: 800px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="https://cdna.artstation.com/p/assets/images/images/034/982/122/large/aleshia-coleman-toast-render.jpg?1613764706"
+                                    class="card-img" alt="..." style="
+                                    height: 165px;
+                                    width: 200px;
+                                    margin-left: 0px;
+                                ">
+                            </div>
+                            <div class="col-md-8" style="right: 65px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to
+                                        additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="card mb-3" style="width: 800px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="https://saseformacion.es/wp-content/uploads/2016/12/curso-html5-javascript-y-css3.jpg"
+                                    class="card-img" alt="..." style="
+                                    height: 165px;
+                                    width: 200px;
+                                    margin-left: 0px;
+                                ">
+                            </div>
+                            <div class="col-md-8" style="right: 65px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to
+                                        additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="card mb-3" style="width: 800px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="https://saseformacion.es/wp-content/uploads/2016/12/curso-html5-javascript-y-css3.jpg"
+                                    class="card-img" alt="..." style="
+                                    height: 165px;
+                                    width: 200px;
+                                    margin-left: 0px;
+                                ">
+                            </div>
+                            <div class="col-md-8" style="right: 65px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to
+                                        additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="card mb-3" style="width: 800px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="data:image/jpeg;base64,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"
+                                    class="card-img" alt="..." style="
+                                    height: 165px;
+                                    width: 200px;
+                                    margin-left: 0px;
+                                ">
+                            </div>
+                            <div class="col-md-8" style="right: 65px;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to
+                                        additional content. This content is a little bit longer.</p>
+                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

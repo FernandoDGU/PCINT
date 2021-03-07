@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/home.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script>
+        $(document).ready(function () {
+            $('.multiple-items').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 3
+            });
+        });
+    </script>
+
+    <style>
+        .checked {
+            color: orange;
+        }
+    </style>
+
+</body>
+<!-- Navar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="color: white;">Nombre de la página</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="Search">
+                    <button class="btn btn-secondary btn-outline-dark " type="submit">Search</button>
+                </form>
+                <select class="form-select" id="inputGroupSelect01">
+                    <option value="1">Curso</option>
+                    <option value="2">Categoria</option>
+                    <option value="3">Escuela</option>
+                </select>
+
+            </ul>
+
+        </div>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Quiero enseñar</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Inicia sesión</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Registrate</a>
+            </li>
+        </ul>
+    </div>
+
+
+</nav>
+
+<!-- Container other -->
+<div class="container start-50 mt-5" style="margin-right: 300px;" id="Other">
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">Mejor puntuación</button>
+        <button type="button" class="btn btn-primary">Más vendidos</button>
+    </div>
+    <h2>Explora los diferentes cursos que hay</h2>
+    <span>Elije entre más de 1000 cursos que hay en video y obten un diploma que engrandezca tu conocimiento </span>
+    <br /><br />
+    <div class="multiple-items text-center Other" id="Slides">
+        <div class="card" style="width: 18rem;">
+            <img src="https://edteam-media.s3.amazonaws.com/courses/big/85d3d7e4-19db-4cff-a4cb-cbead813b6b5.png"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up"
+                style="color:red; transform: scaleX(-1);transform: rotate(180deg);"></i>
+            <span style="color: red;">Mayormente negativa</span>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbHw6YeSzf-idUinw7gLeDwytixwhAVDNvhw&usqp=CAU"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up" style="color:blue;"></i>
+            <span style="color: blue;">Mayormente positiva</span>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://i2.wp.com/unaaldia.hispasec.com/wp-content/uploads/2020/07/1-CrK1VuTTMSg-zL9-z3ohQQ.png?fit=768%2C432&ssl=1"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up"
+                style="color:red; transform: scaleX(-1);transform: rotate(180deg);"></i>
+            <span style="color: red;">Mayormente negativa</span>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://edteam-media.s3.amazonaws.com/courses/big/85d3d7e4-19db-4cff-a4cb-cbead813b6b5.png"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up" style="color:blue;"></i>
+            <span style="color: blue;">Mayormente positiva</span>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbHw6YeSzf-idUinw7gLeDwytixwhAVDNvhw&usqp=CAU"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up"
+                style="color:red; transform: scaleX(-1);transform: rotate(180deg);"></i>
+            <span style="color: red;">Mayormente negativa</span>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://i2.wp.com/unaaldia.hispasec.com/wp-content/uploads/2020/07/1-CrK1VuTTMSg-zL9-z3ohQQ.png?fit=768%2C432&ssl=1"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up" style="color:blue;"></i>
+            <span style="color: blue;">Mayormente positiva</span>
+        </div>
+        <!-- <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div> -->
+
+    </div>
+</div>
+
+<div class="container-fluid mt-5" id="Infocursos">
+    <br /><br /><br />
+    <div class="row">
+        <div class="col-lg-4">
+            <img src="https://www.mercadosiete.com/img/team-members/1584724669-8489.jpg" class="img-fluid" style="width: 330px;
+                height: 250px;
+                margin-top: -50px;
+                margin-left: 102px;border-radius: 50%;">
+        </div>
+        <div class="col-lg-8">
+            <h2 class="text-center"><b>El 87 % de las personas que aprenden</b> para el desarrollo profesional reportan
+                beneficios
+                profesionales, como obtener un ascenso, un aumento o comenzar una nueva carrera
+            </h2>
+
+        </div>
+    </div>
+</div>
+
+<br /><br />
+<div class="container start-50 mt-5" style="max-width: 1290px; margin-left: 300px;">
+    <h2 class="text-end">Hecha un vistazo a los últimos cursos que se han creado</h2>
+    <br />
+    <div class="multiple-items text-center" id="Slides">
+        <div class="card" style="width: 18rem;">
+            <img src="https://edteam-media.s3.amazonaws.com/courses/big/85d3d7e4-19db-4cff-a4cb-cbead813b6b5.png"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up"
+                style="color:red; transform: scaleX(-1);transform: rotate(180deg);"></i>
+            <span style="color: red;">Mayormente negativa</span>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbHw6YeSzf-idUinw7gLeDwytixwhAVDNvhw&usqp=CAU"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up" style="color:blue;"></i>
+            <span style="color: blue;">Mayormente positiva</span>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://i2.wp.com/unaaldia.hispasec.com/wp-content/uploads/2020/07/1-CrK1VuTTMSg-zL9-z3ohQQ.png?fit=768%2C432&ssl=1"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up"
+                style="color:red; transform: scaleX(-1);transform: rotate(180deg);"></i>
+            <span style="color: red;">Mayormente negativa</span>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://edteam-media.s3.amazonaws.com/courses/big/85d3d7e4-19db-4cff-a4cb-cbead813b6b5.png"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up" style="color:blue;"></i>
+            <span style="color: blue;">Mayormente positiva</span>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbHw6YeSzf-idUinw7gLeDwytixwhAVDNvhw&usqp=CAU"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up"
+                style="color:red; transform: scaleX(-1);transform: rotate(180deg);"></i>
+            <span style="color: red;">Mayormente negativa</span>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="https://i2.wp.com/unaaldia.hispasec.com/wp-content/uploads/2020/07/1-CrK1VuTTMSg-zL9-z3ohQQ.png?fit=768%2C432&ssl=1"
+                class="card-img-top" alt="...">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+            </div>
+            <i class="glyphicon glyphicon-thumbs-up" style="color:blue;"></i>
+            <span style="color: blue;">Mayormente positiva</span>
+        </div>
+        <!-- <div>7</div>
+        <div>8</div> -->
+    </div>
+</div>
+<br>
+<br>
+<nav class="navbar fixed-bottom navbar-light bg-dark" style="margin-bottom: 0px !important;">
+</nav>
+
+</html>
