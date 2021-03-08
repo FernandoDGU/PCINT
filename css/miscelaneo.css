@@ -1,0 +1,181 @@
+/*Aquí irán todos los estilos que se utilicen en más de una página.*/
+
+* {
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.bg-blueShape1 {
+  background-color: #edf4fa;
+}
+
+.text-blueShape1 {
+  color: #9fb3d8;
+}
+
+.bg-blueShape2 {
+  background-color: #0014f5;
+}
+
+.text-blueShape2 {
+  color: #0014f5;
+}
+
+.cursor-pointer:hover {
+  cursor: pointer;
+}
+
+.imageHeader {
+  width: 45%;
+  min-height: 30vh;
+  max-height: 60vh;
+  margin-left: 15px;
+  border: 4px outset #770cf5;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.full-pageScroll-bar {
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+.scrollbar-20 {
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 30vh;
+}
+
+.scrollbar-50 {
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 50vh;
+}
+
+.scrollbar-70 {
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 70vh;
+  transition: 1s;
+}
+
+@media only screen and (max-width: 991px) {
+  .scrollbar-70 {
+    height: 50vh;
+    transition: 1s;
+  }
+}
+
+.scrollbar-bottom {
+  overflow: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column-reverse;
+  max-width: 100%;
+}
+
+#toggleStudents {
+  -moz-transition: transform 1s;
+  -webkit-transition: transform 1s;
+  transition: transform 1s;
+}
+
+#toggleStudents2 {
+  -moz-transition: transform 1s;
+  -webkit-transition: transform 1s;
+  transition: transform 1s;
+}
+
+.flip {
+  transform: rotate(-180deg);
+}
+
+video {
+  width: 100%;
+  height: auto;
+}
+
+.progress {
+  background-color: rgb(185, 185, 185);
+  border-radius: 20px;
+  height: 30px;
+  width: 300px;
+}
+
+.progress-done {
+  background: linear-gradient(
+    90deg,
+    rgba(14, 0, 255, 1) 0%,
+    rgba(9, 9, 121, 1) 100%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  height: 100%;
+}
+
+ul li a,
+ul.dropdown-menu li a,
+button#btn-searchOption,
+h6.dropdown-header {
+  font-weight: bold;
+}
+
+ul#navMainMenu li {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+input#searchText {
+  width: 80vh;
+}
+
+@media only screen and (max-width: 1490px) {
+  input#searchText {
+    width: 50vh;
+  }
+}
+
+@media only screen and (max-width: 1231px) {
+  ul#navMainMenu li {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  input#searchText {
+    width: 30vh;
+  }
+}
+
+nav.navbar li.nav-item > a {
+  transition: border-radius 0.5s, background-color 1s, color 1s;
+}
+
+nav.navbar li.nav-item:hover > a {
+  border-radius: 30px;
+  background-color: white;
+  color: #0d6efd !important;
+  transition: border-radius 0.5s, background-color 1s, color 1s;
+}
+
+.btn-scale {
+  transition: transform 0.5s;
+}
+
+.btn-scale:hover {
+  transition: transform 0.5s;
+  transform: scale(1.1);
+}
+
+.error-dm {
+  color: red;
+}
+
+.cursor-denied:hover {
+  cursor: not-allowed;
+}

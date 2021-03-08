@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--css-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/miscelaneo.css">
+  <link rel="stylesheet" href="css/perfil.css">
+  <link rel="stylesheet" href="css/pResultados.css">
+
+  <!--js-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+    integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+    integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/cf205b582d.js" crossorigin="anonymous"></script>
+  <script src="js/perfilUser.js"></script>
+  <script src="js/appNavbar.js"></script>
+  <script src="js/mensajes.js"></script>
+  <!--<script src="js/prueba.js"></script>-->
+
+  <title>Curso</title>
+
+</head>
+
+<body>
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+        <div class="position-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active " aria-current="page" onclick="showUserData()" href="javascript:void(0)">
+                &nbsp; <i class="fas fa-user fa-lg"></i>
+                &nbsp;Mis datos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="showUserCourses()" href="javascript:void(0)">
+                &nbsp; <i class="fas fa-file-alt fa-lg"></i>
+                &nbsp; Mis cursos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="showUserPurchases()" href="javascript:void(0)">
+                <i class="fas fa-shopping-cart fa-lg"></i>
+                &nbsp; Historial de compras
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="showUserMessages()" href="javascript:void(0)">
+                <i class="fas fa-comments fa-lg"></i>
+                &nbsp; Mensajes
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Home.html">
+                <i class="fas fa-arrow-alt-circle-left fa-lg"></i>
+                &nbsp; Regresar a la página principal
+              </a>
+            </li>
+            <hr>
+            <li id="deleteAccount" class="nav-item">
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#confirmationDeleteAccount">
+                <i class="fas fa-trash-alt fa-lg"></i>
+                &nbsp; Eliminar cuenta
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div id="userData" class="col-md-9 col-lg-10  full-pageScroll-bar text-center jsc-account">
+        <button id="btn-collapse"
+          class="navbar-toggler mx-auto d-flex flex-column justify-content-center align-items-center collapsed"
+          type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-caret-square-up fa-3x"></i>
+        </button>
+        <br>
+        <div class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
+
+          <img src="assets/img/KR.jpg" class="img-fluid img-thumbnail rounded-circle"
+            style="border: 4px outset #0014F5;" alt="">
+        </div>
+        <br>
+        <h4 class="d-inline">Nombre de Usuario: </h4>
+        <h4><strong>Darien Sánchez</strong></h4>
+        <br><br>
+        <h4 class="d-inline">Correo electrónico: </h4>
+        <h4><strong>sadarien@gmail.com</strong></h4>
+        <br><br>
+        <button class="btn btn-primary btn-scale" data-bs-toggle="modal" data-bs-target="#modifyUser">Modificar
+          Datos</button>
+        <br><br>
+        <hr><br>
+        <h4 class="text-start">Se unió a <i><strong>MediaCourse</strong></i> el: <strong>27/02/2021</strong>
+        </h4>
+        <br><br>
+        <h4 class="text-start">Cursos adquiridos: <strong>19</strong></h4>
+        <br><br>
+        <h4 class="text-start">Cursos completados: <strong>5</strong></h4>
+        <br>
+        <hr><br>
+        <div class="col-12 text-center mb-5 mt-5">
+          <h3><strong>Comentarios de los cursos:</strong></h3>
+        </div>
+        <div class="row text-start mx-auto d-flex flex-column justify-content-center align-items-center">
+          <div class="col-11 mb-3">
+            <h5><Strong>Curso PHP + MySQL Server - Desarrollo Web</Strong> <button class="btn btn-success" disabled><i
+                  class="fas fa-thumbs-up"></i></button></h5>
+            <h5>de: <small class="text-muted">Ignacio Humberto</small></h5>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi placeat consectetur suscipit tenetur
+            ipsam ipsum nemo esse porro aperiam, quisquam iusto temporibus, non consequatur, blanditiis enim
+            repudiandae nihil magnam ducimus!
+            <br>
+            <p class="text-end">
+              <small class="">19/02/2021</small>
+            </p>
+            <hr>
+          </div>
+
+          <div class="col-11 mb-3">
+            <h5><Strong>HTML, CSS y JS - Desarrollo Web</Strong> <button class="btn btn-success" disabled><i
+                  class="fas fa-thumbs-up"></i></button></h5>
+            <h5>de: <small class="text-muted">Ignacio Humberto</small></h5>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi placeat consectetur suscipit tenetur
+            ipsam ipsum nemo esse porro aperiam, quisquam iusto temporibus, non consequatur, blanditiis enim
+            repudiandae nihil magnam ducimus!
+            <br>
+            <p class="text-end">
+              <small class="">19/02/2021</small>
+            </p>
+            <hr>
+          </div>
+
+          <div class="col-11 mb-3">
+            <h5><Strong>Bootstrap, JQuery, AJAX - Desarrollo Web</Strong> <button class="btn btn-danger" disabled><i
+                  class="fas fa-thumbs-down"></i></button></h5>
+            <h5>de: <small class="text-muted">Ignacio Humberto</small></h5>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi placeat consectetur suscipit tenetur
+            ipsam ipsum nemo esse porro aperiam, quisquam iusto temporibus, non consequatur, blanditiis enim
+            repudiandae nihil magnam ducimus!
+            <br>
+            <p class="text-end">
+              <small class="">19/02/2021</small>
+            </p>
+            <hr>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="userCourses" class="col-md-9 col-lg-10 full-pageScroll-bar text-center jsc-account"
+        style="display:none;">
+        <button id="btn-collapse"
+          class="navbar-toggler mx-auto d-flex flex-column justify-content-center align-items-center collapsed"
+          type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-caret-square-up fa-3x"></i>
+        </button>
+        <div class="row mt-5 text-center d-flex flex-column justify-content-center align-items-center">
+          <div class="btn-group mb-5 row " role="group" aria-label="Basic radio toggle button group">
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn btn-outline-primary col-lg-2 col-md-12 " for="btnradio1">Ordenar por autor</label>
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked>
+            <label class="btn btn-outline-primary col-lg-6 col-md-12 " for="btnradio2">Ordenar por nombre</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-primary col-lg-4 col-md-12 " for="btnradio3">Ordenar por progreso</label>
+          </div>
+        </div>
+
+        <hr>
+        <div class="row ">
+
+          <div class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
+            <img src="assets/img/phyton.jpg" class="img-fluid img-thumbnail"
+              style="border: 4px outset #770CF5; cursor:pointer;" alt="" onclick="window.location.href='curso.html';">
+          </div>
+          <div class="col-lg-6 col-sm-12">
+            <p><strong class="align-middle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
+                voluptatibus!</strong></p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus alias nulla consequuntur
+              exercitationem, deleniti praesentium. Voluptate facilis expedita ullam et?</p>
+            <small class="text-muted">Lorem, ipsum dolor.</small>
+          </div>
+          <div class="col-lg-4 col-sm-12 text-center d-flex flex-column justify-content-center align-items-center">
+            <p>Progreso:</p>
+            <div class="progress">
+              <div class="progress-done" style="width:100px;">
+                <!--100% = width:300px;-->
+                33.3%
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <hr>
+        <div class="row ">
+
+          <div class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
+            <img src="assets/img/visual-studio.jpg" class="img-fluid img-thumbnail"
+              style="border: 4px outset #770CF5; cursor:pointer;" alt="">
+          </div>
+          <div class="col-lg-6 col-sm-12">
+            <p><strong class="align-middle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
+                voluptatibus!</strong></p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus alias nulla consequuntur
+              exercitationem, deleniti praesentium. Voluptate facilis expedita ullam et?</p>
+            <small class="text-muted">Lorem, ipsum dolor.</small>
+          </div>
+          <div class="col-lg-4 col-sm-12 text-center d-flex flex-column justify-content-center align-items-center">
+            <p>Progreso:</p>
+            <div class="progress">
+              <div class="progress-done" style="width:100px;">
+                <!--100% = width:300px;-->
+                33.3%
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <hr>
+        <div class="row">
+
+          <div class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
+            <img src="assets/img/phyton.jpg" class="img-fluid img-thumbnail"
+              style="border: 4px outset #770CF5; cursor:pointer;" alt="">
+          </div>
+          <div class="col-lg-6 col-sm-12">
+            <p><strong class="align-middle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
+                voluptatibus!</strong></p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus alias nulla consequuntur
+              exercitationem, deleniti praesentium. Voluptate facilis expedita ullam et?</p>
+            <small class="text-muted">Lorem, ipsum dolor.</small>
+          </div>
+          <div class="col-lg-4 col-sm-12 text-center d-flex flex-column justify-content-center align-items-center">
+            <p>Progreso:</p>
+            <div class="progress">
+              <div class="progress-done" style="width:200px;">
+                <!--100% = width:300px;-->
+                66.6%
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <hr>
+        <div class="row">
+
+          <div class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
+            <img src="assets/img/visual-studio.jpg" class="img-fluid img-thumbnail"
+              style="border: 4px outset #770CF5; cursor:pointer;" alt="">
+          </div>
+          <div class="col-lg-6 col-sm-12">
+            <p><strong class="align-middle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
+                voluptatibus!</strong></p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus alias nulla consequuntur
+              exercitationem, deleniti praesentium. Voluptate facilis expedita ullam et?</p>
+            <small class="text-muted">Lorem, ipsum dolor.</small>
+          </div>
+          <div class="col-lg-4 col-sm-12 text-center d-flex flex-column justify-content-center align-items-center">
+            <p>Progreso:</p>
+            <div class="progress">
+              <div class="progress-done" style="width:300px;">
+                <!--100% = width:300px;-->
+                100%
+              </div>
+            </div>
+            <hr>
+            <a href="carrito.html" download>Descargar Diploma</a>
+          </div>
+        </div>
+        <hr>
+
+      </div>
+
+
+      <div id="userPurchases" class="col-md-9 col-lg-10 full-pageScroll-bar text-center jsc-account"
+        style="display:none;">
+        <button id="btn-collapse"
+          class="navbar-toggler mx-auto d-flex flex-column justify-content-center align-items-center collapsed"
+          type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-caret-square-up fa-3x"></i>
+        </button>
+        <div class="row mt-5 text-center d-flex flex-column justify-content-center align-items-center">
+          <div class="btn-group mb-5 row " role="group" aria-label="Basic radio toggle button group">
+
+            <input type="radio" class="btn-check" name="btnradiop" id="btnradiop1" autocomplete="off" checked>
+            <label class="btn btn-outline-primary col-lg-2 col-md-12 " for="btnradiop1">Ordenar por fecha</label>
+            <input type="radio" class="btn-check" name="btnradiop" id="btnradiop2" autocomplete="off" checked>
+            <label class="btn btn-outline-primary col-lg-6 col-md-12 " for="btnradiop2">Ordenar por nombre</label>
+
+            <input type="radio" class="btn-check" name="btnradiop" id="btnradiop3" autocomplete="off">
+            <label class="btn btn-outline-primary col-lg-4 col-md-12 " for="btnradiop3">Ordenar por precio</label>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
+            <img src="assets/img/phyton.jpg" class="img-fluid img-thumbnail" style="border: 4px outset #770CF5;" alt="">
+            <br>
+            <small class="text-muted">Fecha de adquisición:</small>
+            <h3><strong>28/02/2021</strong></h3>
+          </div>
+          <div class="col-lg-6 col-sm-12 mx-auto d-flex flex-column justify-content-center align-items-center">
+            <p><strong class="align-middle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
+                voluptatibus!</strong></p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus alias nulla consequuntur
+              exercitationem, deleniti praesentium. Voluptate facilis expedita ullam et?</p>
+            <small class="text-muted">Lorem, ipsum dolor.</small>
+          </div>
+          <div class="col-lg-4 col-sm-12 text-center d-flex flex-column justify-content-center align-items-center">
+            <small class="text-muted">Precio:</small>
+            <h3><strong>$150.00</strong></h3>
+
+          </div>
+        </div>
+        <hr>
+      </div>
+
+      <div id="userMessages" class="col-md-9 col-lg-10 full-pageScroll-bar text-center jsc-account"
+        style="display:none;">
+        <button id="btn-collapse"
+          class="navbar-toggler mx-auto d-flex flex-column justify-content-center align-items-center collapsed"
+          type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
+          aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-caret-square-up fa-3x"></i>
+        </button>
+        <div class="row">
+          <div class="container" style="margin-right: 216px;">
+            <br>
+            <div class="row">
+              <div class="col-lg-4" style="border:solid 3px rgba(0, 0, 0, 0);">
+                <!-- height: 100px; -->
+                <br />
+                <div class="input-group mb-3">
+                  <button class="btn btn-outline-primary" type="button"><strong>Redactar</strong></button>
+                  <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                    <option selected>Todos los mensajes</option>
+                    <option value="1">Mensajes sin leer</option>
+                  </select>
+                </div>
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
+                    aria-describedby="button-addon2">
+                  <button class="btn btn-outline-primary" type="button" id="button-addon2"><img
+                      src="https://img.icons8.com/material-outlined/24/000000/search--v2.png" /></button>
+                </div>
+                <div class="scrollbar-50 bg-light border">
+
+                  <a href="#" class="list-group-item list-group-item-action" aria-current="">
+                    <div class="row">
+                      <div
+                        class="col-lg-4 col-md-4 col-sm-5 col-5 mb-3 mx-auto d-flex flex-column justify-content-center align-items-center">
+                        <img src="assets/img/img1.jpg" class="img-fluid img-thumbnail rounded-circle" alt=""
+                          style="border-radius:32px;">
+                      </div>
+                      <div class="col-lg-10 col-md-8 col-sm-12">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1"><strong>Ignacio Humberto</strong></h5>
+                          <small>05/03/2021</small>
+                        </div>
+                        <p class="mb-1">
+                          Mira, lo que tienes que hacer es reservar esp...
+                        </p>
+                        <small>05:34</small>
+                      </div>
+                    </div>
+                  </a>
+
+                </div>
+              </div>
+              <div class="col-lg-8" style="border:solid 3px rgba(0, 0, 0, 0);">
+                <div class="border-bottom"><img src="assets/img/img2.jpg" class="img-fluid img-thumbnail rounded-circle"
+                    alt="" width="100px" height="100px"> <strong class="h5">Miguel Arévalo</strong>
+                  <span></span>
+                </div>
+                <br />
+                <div class="row scrollbar-50 scrollbar-bottom">
+                  <div id="messageHistory" class="bg-light text-start">
+                    <div class="col-12 text-center">
+                      <small>07/03/2021 - 12:56 a.m.</small>
+                    </div>
+                    <div class="border-bottom col-lg-7 col-9 me-auto d-flex messages"
+                      style="background-color: rgba(95, 158, 160, 0.596);">Lorem, ipsum dolor sit
+                      amet consectetur
+                      adipisicing elit. Harum vero enim
+                      totam dignissimos est
+                      quis commodi dolorem, aspernatur soluta libero odio sit, fuga fugiat!
+                      Suscipit minima unde
+                      saepe
+                      omnis debitis?
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Unde alias nemo soluta dicta natus voluptatum quibusdam
+                      debitis veritatis dignissimos sit, molestias impedit consequatur quaerat,
+                      asperiores maiores
+                      ad
+                      accusamus, ab ullam?
+                    </div>
+                    <br>
+                    <div class="col-12 text-center">
+                      <small>07/03/2021 - 12:56 a.m.</small>
+                    </div>
+                    <div class="border-bottom col-lg-7 col-9 ms-auto d-flex messages"
+                      style="background-color: rgba(130, 216, 219, 0.596);">
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, ipsa harum?
+                      Sed explicabo
+                      id at laudantium natus unde architecto ad, quo minus est quisquam nisi
+                      labore ipsum enim
+                      ratione officia totam dolor. Cum accusantium repellat cupiditate
+                      necessitatibus error
+                      voluptas iste quidem exercitationem facere. Ducimus quod aut eaque impedit
+                      harum sit soluta
+                      ipsa odio repellat. Similique aliquam esse rem delectus hic voluptatum
+                      dignissimos nam modi,
+                      dicta vitae vel consequatur, ducimus adipisci a. Ea in illum pariatur,
+                      numquam sequi facilis
+                      laboriosam fugiat asperiores veritatis quaerat eum id debitis tenetur rem
+                      optio voluptatum
+                      nostrum est esse eaque sapiente voluptatem! Impedit pariatur earum odio
+                      iusto reiciendis
+                      tempore laborum ducimus fuga culpa dolores, consequuntur corporis eveniet
+                      fugit nihil sunt
+                      dolore vel perspiciatis autem sint dolor nesciunt eius. Repudiandae totam
+                      deserunt dolores
+                      corrupti nemo repellat ab labore minus corporis rem. Suscipit sit quasi
+                      commodi iusto
+                      pariatur error cumque neque magnam nobis nam voluptatibus nesciunt assumenda
+                      deserunt fugit
+                      repudiandae explicabo, autem incidunt temporibus nulla facere totam soluta
+                      laboriosam unde.
+                      Nihil placeat laudantium facere debitis corporis, dignissimos temporibus
+                      mollitia provident
+                      veniam quisquam, qui quaerat voluptate impedit quo. Eligendi consectetur,
+                      officiis
+                      exercitationem debitis obcaecati unde mollitia consequatur pariatur eos, ex,
+                      ab illo nisi
+                      fugiat veritatis reprehenderit quo. Blanditiis officia aspernatur, iste
+                      earum vitae debitis
+                      alias! Repellendus alias reprehenderit quae? Vel odio, laudantium quas fugit
+                      inventore
+                      harum, vitae iste ea, officia dolor voluptas sed error explicabo cum in
+                      voluptatem tempora
+                      magnam saepe quibusdam repudiandae itaque obcaecati adipisci. Sint culpa
+                      possimus,
+                      laudantium aliquam, corrupti unde nesciunt inventore blanditiis odit ratione
+                      aperiam
+                      laborum! Non, quia? Ex dolores assumenda excepturi iusto sed eligendi quia,
+                      ipsam vero sint
+                      fuga provident, voluptate eaque obcaecati inventore adipisci modi eum,
+                      beatae dolore
+                      deserunt commodi atque? Laborum quae, praesentium tempore ipsum voluptatem
+                      architecto illo
+                      doloribus harum, aut consectetur, necessitatibus voluptatibus mollitia? Quos
+                      expedita vitae
+                      iure, vel dolorem inventore ipsam unde quis quam fugit? Nostrum consectetur
+                      expedita ipsam
+                      in molestiae eaque labore, eius perferendis odit, quam recusandae saepe
+                      voluptatem deleniti
+                      illo consequatur? Maiores suscipit tempore, voluptates saepe commodi
+                      voluptatum labore autem
+                      molestiae, accusantium ea quasi provident temporibus inventore nihil aut
+                      porro unde nisi id
+                      aspernatur tempora aliquid qui enim consequuntur? Debitis qui quo id soluta
+                      aliquam mollitia
+                      cumque eveniet, autem cum nihil odit excepturi, architecto rem dolorum
+                      dolores modi
+                      doloremque provident error consectetur perspiciatis tempore necessitatibus
+                      distinctio sequi?
+                      Quisquam, rem atque blanditiis laborum iusto nam sequi beatae ex distinctio
+                      dolorem suscipit
+                      placeat, quos id consequuntur unde quasi? Excepturi, ipsum. Saepe atque
+                      omnis enim velit
+                      temporibus suscipit possimus corporis inventore, sit quod. Iure, beatae
+                      sequi. Ad modi
+                      facere voluptates aut ratione dolores asperiores vel commodi, quae dolore
+                      itaque temporibus
+                      non labore eveniet quam aliquid neque doloremque rem animi iste harum ab.
+                      Vel eius
+                      laboriosam quidem deleniti modi, accusamus deserunt enim id earum nesciunt
+                      dignissimos error
+                      cumque ullam corrupti illo. Dolorem modi itaque tempora porro reiciendis
+                      possimus quaerat
+                      in, hic, vero temporibus, id alias et voluptatum accusantium culpa sit
+                      similique. Quae
+                      laborum reiciendis impedit quisquam amet praesentium in optio, facilis
+                      obcaecati, ab fugit
+                      iste ut sint fuga neque soluta. Quasi, facere?
+                    </div>
+                    <br>
+
+                    <div class="col-12 text-center">
+                      <small>07/03/2021 - 12:56 a.m.</small>
+                    </div>
+                    <div class="border-bottom col-lg-7 col-9 me-auto d-flex messages"
+                      style="background-color: rgba(95, 158, 160, 0.596);">Lorem, ipsum dolor sit
+                      amet consectetur
+                      adipisicing elit. Harum vero enim
+                      totam dignissimos est
+                      quis commodi dolorem, aspernatur soluta libero odio sit, fuga fugiat!
+                      Suscipit minima unde
+                      saepe
+                      omnis debitis?
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                      Unde alias nemo soluta dicta natus voluptatum quibusdam
+                      debitis veritatis dignissimos sit, molestias impedit consequatur quaerat,
+                      asperiores maiores
+                      ad
+                      accusamus, ab ullam?
+                    </div>
+                    <br>
+                  </div>
+                </div>
+                <br />
+                <hr>
+                <br>
+                <div>
+
+                  <label for="exampleFormControlTextarea1" class="form-label">Escribe tu
+                    mensaje</label>
+                  <textarea id="txta-message" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+
+
+                </div>
+                <button id="sendMessage" class="btn btn-primary btn-scale mt-3">Enviar</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!--Modales-->
+
+  <!--Modificar Datos-->
+  <div class="modal fade" id="modifyUser" tabindex="-1" aria-labelledby="modifyUserLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <form action="" onsubmit="return validateFormSignUp()">
+          <div class="modal-header bg-blueShape2 text-white">
+            <h5 class="modal-title " id="modifyUserLabel">Modificando...</h5>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-12">
+                <div id="imagesCointainer mb-3">
+                  <div class='imageItem'>
+                    <div class='form-group'>
+                      <label>Imagen de perfil</label>
+                      <input name='images' id="profilePic" type='file' class='form-control' accept="image/*">
+                    </div>
+                    <p id="constrProfilePic" class="text-danger" style="display:none;">¡Agrega una
+                      imagen
+                      de perfil!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="input-group mt-3">
+                  <span class="input-group-text col-lg-3 col-12" id="basic-addon1"><i
+                      class="fas fa-user-edit"></i>&nbsp;Nombre de Usuario</span>
+                  <input type="text" class="form-control" id="userName" placeholder="Máximo 20 carácteres"
+                    aria-label="Username" aria-describedby="basic-addon1" value="Darien Sánchez"
+                    onfocusout="validateUserName(this)">
+
+                </div>
+                <p id="constrUserName" class="text-danger" style="display:none;">¡Ocupas tener máximo
+                  20 caracteres!</p>
+              </div>
+              <div class="col-12">
+                <div class="input-group mt-3">
+                  <span class="input-group-text col-lg-3 col-12" id="basic-addon1"><i
+                      class="fas fa-envelope"></i>&nbsp;Correo Electrónico</span>
+                  <input type="text" class="form-control" id="userEmail" placeholder="Máximo 50 carácteres"
+                    aria-label="Username" aria-describedby="basic-addon1" value="sadarien@gmail.com"
+                    onfocusout="validateEmailUser(this)">
+                </div>
+                <p id="constrEmail1" class="text-danger" style="display:none;">¡Introduce un Correo
+                  Electrónico válido!</p>
+                <p id="constrEmail2" class="text-danger" style="display:none;">¡Ocupas tener un máximo
+                  de
+                  50 caracteres!</p>
+              </div>
+              <div class="col-12">
+
+                <div class="input-group mt-3">
+                  <span class="input-group-text col-lg-3 col-12" id="basic-addon1"><i class="fas fa-key"></i>&nbsp;
+                    Contraseña</span>
+                  <input type="password" class="form-control" id="userPass"
+                    placeholder="Mínimo 8 carácteres, 1 mayúscula, 1 número y carácter especial" aria-label="Username"
+                    aria-describedby="basic-addon1" onfocusout="validateUserPass(this)" value="darienMiguel1*">
+                </div>
+                <a id="specialChars" class="text-decoration" data-bs-container="body" data-bs-toggle="popover"
+                  data-bs-placement="bottom" data-bs-content="@#$%^&+*!=">
+                  <small class="cursor-pointer">*Carácteres Especiales</small>
+                </a>
+                <p id="constrPassword" class="text-danger" style="display:none;">¡Ocupas tener mínimo 8
+                  caracteres, una
+                  mayúscula, un número y un
+                  caracter especial
+                  @#$%^&+*!=</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+
+            <small class="text-muted">Se modificó por última vez el: 05/03/2021</small>
+            <button type="submit" class="btn btn-warning">Modificar</button>
+            <button type=" button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
+
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--Confirmar modificación-->
+  <div class="modal fade" id="confirmationModifyUser" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="confirmationModifyUserLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-blueShape2 text-white">
+          <h5 class="modal-title" id="confirmationModifyUserLabel">Enhorabuena</h5>
+        </div>
+        <div class="modal-body text-center">
+          ¡Tus datos se han actualizado con éxito!
+        </div>
+        <div class="modal-footer ">
+          <button id="btn-cmu" type="button" class="btn btn-primary mx-auto d-flex"
+            data-bs-dismiss="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Confirmar eliminar cuenta-->
+  <div class="modal fade" id="confirmationDeleteAccount" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="confirmationDeleteAccountLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="confirmationDeleteAccount">Eliminando...</h5>
+        </div>
+        <div class="modal-body text-center">
+          ¿En verdad quieres eliminar tu cuenta? <br> ¡Ya no podrás recuperarla!
+        </div>
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-secondary mx-auto d-flex" data-bs-dismiss="modal">Regresar</button>
+          <button id="btn-cmu" type="button" class="btn btn-danger mx-auto d-flex"
+            data-bs-dismiss="modal">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

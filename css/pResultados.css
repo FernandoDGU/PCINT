@@ -1,4 +1,28 @@
-#rBusqueda{
-    margin-top: 50px;
-    /* margin-left: 318px */
+#rBusqueda {
+  margin-top: 50px;
+  /* margin-left: 318px */
+}
+
+.messages {
+  border-radius: 16px;
+  padding: 10px;
+}
+
+ol li.transition {
+  background-color: white;
+  color: black;
+  transition: 0.5s;
+}
+
+ol li.active-cat {
+  background-color: #0d6efd;
+  color: white;
+  transition: 0.5s;
+}
+
+ol li.transition:hover {
+  background-color: #0d6efd;
+  color: white;
+  transition: 0.5s;
+  cursor: pointer;
 }

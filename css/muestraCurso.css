@@ -1,0 +1,9 @@
+.accordion-button {
+  transition: 0.5s;
+}
+
+.accordion-button:hover {
+  color: white !important;
+  background-color: #0d6efd;
+  transition: 0.5s;
+}
