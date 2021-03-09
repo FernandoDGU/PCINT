@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje privado</title>
+    <!--css-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/miscelaneo.css">
+    <link rel="stylesheet" href="css/pResultados.css">
+
+    <!--js-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/cf205b582d.js" crossorigin="anonymous"></script>
+    <script src="js/mensajes.js"></script>
+
+    <!--
+    <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+    <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
+
+    <script src="https://kit.fontawesome.com/cf205b582d.js" crossorigin="anonymous"></script>
+    <script src="js/appNavbar.js"></script>
+-->
+</head>
+
+<body>
+    <!-- Navar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0">
+                    <form class="d-flex" action="" onsubmit="return searchCondition()">
+                        <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0">
+                            <input class="form-control" id="searchText" type="search" placeholder="Buscar"
+                                aria-label="Search">
+                            <!-- Example split danger button -->
+
+                            <div class="btn-group" id="search-btn-group">
+                                <button type="button" id="btn-searchOption"
+                                    class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Selecciona &nbsp;
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                    <li><a class="dropdown-item" onclick="navbarChoosing(this)"
+                                            href="javascript:void(0)">Curso</a></li>
+                                    <li><a class="dropdown-item" onclick="navbarChoosing(this)"
+                                            href="javascript:void(0)">Escuela</a>
+                                    </li>
+                                    <li><a class="dropdown-item" onclick="navbarChoosing(this)"
+                                            href="javascript:void(0)">Categoría
+                                        </a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                </ul>
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+
+
+
+                            </div>
+                        </ul>
+                    </form>
+                </ul>
+                <ul class="navbar-nav me-auto mx-auto d-flex mb-2 mb-lg-0 text-center" id="navMainMenu">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home"></i> <br>
+                            Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#"><i class="fab fa-hotjar"></i> <br> Cursos populares</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" tabindex="-1"><i class="fas fa-certificate"></i> <br>
+                            Últimos cursos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" tabindex="-1"> <i class="fas fa-graduation-cap"></i> <br>
+                            Mis cursos</a>
+                    </li>
+
+                    <li class="nav-item dropdown mx-auto d-flex flex-column justify-content-center align-items-center">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center active" href="#"
+                            id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle"
+                                height="22" alt="" loading="lazy" />
+                            &nbsp; Mi perfil
+                        </a>
+                        <ul class="dropdown-menu  dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                            <li>
+                                <h6 class="dropdown-header">Darien Sánchez</h6>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Mi perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Mis cursos</a></li>
+                            <li><a class="dropdown-item" href="#">Mensajes</a></li>
+                            <li><a class="dropdown-item" href="#">Carro <span class="badge bg-warning">2</span></a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+    </nav>
+
+    <div style="background-color: #676582a1; height: 135px;">
+        <div style="color: white; margin-left: 96px;">
+            <br>
+            <h1>Mensajes </h1>
+            <h2>Tienes 0 mensajes nuevos</h2>
+        </div>
+    </div>
+    <div class="container" style="margin-right: 216px;">
+        <br>
+        <div class="row">
+            <div class="col-lg-4" style="border:solid 3px rgba(0, 0, 0, 0);">
+                <!-- height: 100px; -->
+                <br />
+                <div class="input-group mb-3">
+                    <button class="btn btn-outline-primary" type="button"><strong>Redactar</strong></button>
+                    <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+                        <option selected>Todos los mensajes</option>
+                        <option value="1">Mensajes sin leer</option>
+                    </select>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username"
+                        aria-describedby="button-addon2">
+                    <button class="btn btn-outline-primary" type="button" id="button-addon2"><img
+                            src="https://img.icons8.com/material-outlined/24/000000/search--v2.png" /></button>
+                </div>
+                <div class="scrollbar-50 bg-light border">
+
+                    <a href="#" class="list-group-item list-group-item-action" aria-current="">
+                        <div class="row">
+                            <div
+                                class="col-lg-4 col-md-4 col-sm-5 col-5 mb-3 mx-auto d-flex flex-column justify-content-center align-items-center">
+                                <img src="assets/img/visual-studio.jpg" class="img-fluid img-thumbnail rounded-circle"
+                                    alt="" style="border-radius:32px;">
+                            </div>
+                            <div class="col-lg-10 col-md-8 col-sm-12">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">List group item heading</h5>
+                                    <small>3 days ago</small>
+                                </div>
+                                <p class="mb-1">
+                                    Some placeholder content in a paragraph.
+                                </p>
+                                <small>And some small print.</small>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <div class="col-lg-8" style="border:solid 3px rgba(0, 0, 0, 0);">
+                <div class="border-bottom"><img src="https://www.w3schools.com/howto/img_avatar.png" alt="" style="max-width: 55px;
+                    border-radius: 32px;"> <span>Fernando De Luna</span>
+                    <span></span>
+                </div>
+                <br />
+                <div class="row scrollbar-50 scrollbar-bottom">
+                    <div id="messageHistory" class="bg-light">
+                        <div class="col-12 text-center">
+                            <small>07/03/2021 - 12:56 a.m.</small>
+                        </div>
+                        <div class="border-bottom col-lg-7 col-9 me-auto d-flex messages"
+                            style="background-color: rgba(95, 158, 160, 0.596);">Lorem, ipsum dolor sit amet consectetur
+                            adipisicing elit. Harum vero enim
+                            totam dignissimos est
+                            quis commodi dolorem, aspernatur soluta libero odio sit, fuga fugiat! Suscipit minima unde
+                            saepe
+                            omnis debitis?
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Unde alias nemo soluta dicta natus voluptatum quibusdam
+                            debitis veritatis dignissimos sit, molestias impedit consequatur quaerat, asperiores maiores
+                            ad
+                            accusamus, ab ullam?
+                        </div>
+                        <br>
+                        <div class="col-12 text-center">
+                            <small>07/03/2021 - 12:56 a.m.</small>
+                        </div>
+                        <div class="border-bottom col-lg-7 col-9 ms-auto d-flex messages"
+                            style="background-color: rgba(130, 216, 219, 0.596);">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, ipsa harum? Sed explicabo
+                            id at laudantium natus unde architecto ad, quo minus est quisquam nisi labore ipsum enim
+                            ratione officia totam dolor. Cum accusantium repellat cupiditate necessitatibus error
+                            voluptas iste quidem exercitationem facere. Ducimus quod aut eaque impedit harum sit soluta
+                            ipsa odio repellat. Similique aliquam esse rem delectus hic voluptatum dignissimos nam modi,
+                            dicta vitae vel consequatur, ducimus adipisci a. Ea in illum pariatur, numquam sequi facilis
+                            laboriosam fugiat asperiores veritatis quaerat eum id debitis tenetur rem optio voluptatum
+                            nostrum est esse eaque sapiente voluptatem! Impedit pariatur earum odio iusto reiciendis
+                            tempore laborum ducimus fuga culpa dolores, consequuntur corporis eveniet fugit nihil sunt
+                            dolore vel perspiciatis autem sint dolor nesciunt eius. Repudiandae totam deserunt dolores
+                            corrupti nemo repellat ab labore minus corporis rem. Suscipit sit quasi commodi iusto
+                            pariatur error cumque neque magnam nobis nam voluptatibus nesciunt assumenda deserunt fugit
+                            repudiandae explicabo, autem incidunt temporibus nulla facere totam soluta laboriosam unde.
+                            Nihil placeat laudantium facere debitis corporis, dignissimos temporibus mollitia provident
+                            veniam quisquam, qui quaerat voluptate impedit quo. Eligendi consectetur, officiis
+                            exercitationem debitis obcaecati unde mollitia consequatur pariatur eos, ex, ab illo nisi
+                            fugiat veritatis reprehenderit quo. Blanditiis officia aspernatur, iste earum vitae debitis
+                            alias! Repellendus alias reprehenderit quae? Vel odio, laudantium quas fugit inventore
+                            harum, vitae iste ea, officia dolor voluptas sed error explicabo cum in voluptatem tempora
+                            magnam saepe quibusdam repudiandae itaque obcaecati adipisci. Sint culpa possimus,
+                            laudantium aliquam, corrupti unde nesciunt inventore blanditiis odit ratione aperiam
+                            laborum! Non, quia? Ex dolores assumenda excepturi iusto sed eligendi quia, ipsam vero sint
+                            fuga provident, voluptate eaque obcaecati inventore adipisci modi eum, beatae dolore
+                            deserunt commodi atque? Laborum quae, praesentium tempore ipsum voluptatem architecto illo
+                            doloribus harum, aut consectetur, necessitatibus voluptatibus mollitia? Quos expedita vitae
+                            iure, vel dolorem inventore ipsam unde quis quam fugit? Nostrum consectetur expedita ipsam
+                            in molestiae eaque labore, eius perferendis odit, quam recusandae saepe voluptatem deleniti
+                            illo consequatur? Maiores suscipit tempore, voluptates saepe commodi voluptatum labore autem
+                            molestiae, accusantium ea quasi provident temporibus inventore nihil aut porro unde nisi id
+                            aspernatur tempora aliquid qui enim consequuntur? Debitis qui quo id soluta aliquam mollitia
+                            cumque eveniet, autem cum nihil odit excepturi, architecto rem dolorum dolores modi
+                            doloremque provident error consectetur perspiciatis tempore necessitatibus distinctio sequi?
+                            Quisquam, rem atque blanditiis laborum iusto nam sequi beatae ex distinctio dolorem suscipit
+                            placeat, quos id consequuntur unde quasi? Excepturi, ipsum. Saepe atque omnis enim velit
+                            temporibus suscipit possimus corporis inventore, sit quod. Iure, beatae sequi. Ad modi
+                            facere voluptates aut ratione dolores asperiores vel commodi, quae dolore itaque temporibus
+                            non labore eveniet quam aliquid neque doloremque rem animi iste harum ab. Vel eius
+                            laboriosam quidem deleniti modi, accusamus deserunt enim id earum nesciunt dignissimos error
+                            cumque ullam corrupti illo. Dolorem modi itaque tempora porro reiciendis possimus quaerat
+                            in, hic, vero temporibus, id alias et voluptatum accusantium culpa sit similique. Quae
+                            laborum reiciendis impedit quisquam amet praesentium in optio, facilis obcaecati, ab fugit
+                            iste ut sint fuga neque soluta. Quasi, facere?
+                        </div>
+                        <br>
+
+                        <div class="col-12 text-center">
+                            <small>07/03/2021 - 12:56 a.m.</small>
+                        </div>
+                        <div class="border-bottom col-lg-7 col-9 me-auto d-flex messages"
+                            style="background-color: rgba(95, 158, 160, 0.596);">Lorem, ipsum dolor sit amet consectetur
+                            adipisicing elit. Harum vero enim
+                            totam dignissimos est
+                            quis commodi dolorem, aspernatur soluta libero odio sit, fuga fugiat! Suscipit minima unde
+                            saepe
+                            omnis debitis?
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                            Unde alias nemo soluta dicta natus voluptatum quibusdam
+                            debitis veritatis dignissimos sit, molestias impedit consequatur quaerat, asperiores maiores
+                            ad
+                            accusamus, ab ullam?
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                <br />
+                <hr>
+                <br>
+                <div>
+
+                    <label for="exampleFormControlTextarea1" class="form-label">Escribe tu mensaje</label>
+                    <textarea id="txta-message" class="form-control" id="exampleFormControlTextarea1"
+                        rows="3"></textarea>
+
+
+
+                </div>
+                <button id="sendMessage" class="btn btn-primary mt-3">Enviar</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
     $("#btn-searchOption").text("Selecciona ");
 
@@ -32,6 +33,7 @@ function searchCondition(){
 
 function signUp(e){
     $("#userText").empty();
+    $(".error-dm").hide();
     switch(e){
         case "Alumno":{
             let text = "¿Qué esperas para registrarte? ¡Con el rol <i> estudiante </i> tendrás acceso a muchos cursos!";
@@ -59,6 +61,10 @@ function validateProfilePic(profilePic){
     }
 }*/
 
+function validateProfilePic(profilePic){
+   
+}
+
 function validateUserName(userName){
     $("#constrUserName").slideUp("fast");
     let name = $(userName).val();
@@ -75,6 +81,7 @@ function validateEmailUser(emailUser){
     $("#constrEmail1").slideUp("fast");
     $("#constrEmail2").slideUp("fast");
         let returnValue = false;
+        let returnValue2 = false;
         let email = $(emailUser).val();
         const emailPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         let isIt = emailPattern.test(email);
@@ -87,12 +94,14 @@ function validateEmailUser(emailUser){
         }
         if (email.length < 1 || email.length > 50){
             $("#constrEmail2").slideDown();
-            returnValue = false;
+            returnValue2 = false;
         }else{
             $("#constrEmail2").slideUp();
-            returnValue = true;
+            returnValue2 = true;
         }
-        return returnValue;
+        if(returnValue && returnValue2){
+        return true;
+        }else return false;
 }
 
 function validateUserPass(password){

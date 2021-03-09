@@ -23,18 +23,18 @@
         integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/cf205b582d.js" crossorigin="anonymous"></script>
-    <script src="js/carro.js"></script>
     <script src="js/appNavbar.js"></script>
     <!--<script src="js/prueba.js"></script>-->
-    <link rel="icon" href="assets/img/icon.jpeg">
-    <title>MediaCourse - Carro</title>
+
+    <title>Curso</title>
 
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="Home.html"><strong>MediaCourse</strong></a>
+            <a class="navbar-brand" href="Home.html">MediaCourse</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -99,7 +99,8 @@
                     <li class="nav-item dropdown mx-auto d-flex flex-column justify-content-center align-items-center">
                         <a class="nav-link dropdown-toggle d-flex align-items-center active" href="#"
                             id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="assets/img/KR.jpg" class="rounded-circle" height="22" alt="" loading="lazy" />
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle"
+                                height="22" alt="" loading="lazy" />
                             &nbsp; Mi perfil
                         </a>
                         <ul class="dropdown-menu  dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
@@ -127,139 +128,87 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-5">
-        <small class="h5 text-muted">Hay 2 cursos en el carrito.</small>
-        <hr>
-        <div class="row">
-            <div class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
-                <img src="assets/img/phyton.jpg" class="img-fluid img-thumbnail" style="border: 4px outset #770CF5;"
-                    alt="">
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <p><strong class="align-middle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
-                        voluptatibus!</strong></p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus alias nulla consequuntur
-                    exercitationem, deleniti praesentium. Voluptate facilis expedita ullam et?</p>
-                <small class="text-muted">Lorem, ipsum dolor.</small>
-            </div>
-            <div class="col-lg-4 col-sm-12 text-center d-flex flex-column justify-content-center align-items-center">
-                <small class="text-muted">Precio:</small>
-                <h3><strong>$150.00</strong></h3>
-                <button type="button" class="btn btn-link">Eliminar</button>
+
+    <br><br><br><br>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0">
+                    <form class="d-flex" action="" onsubmit="return searchCondition()">
+                        <ul class="navbar-nav me-auto mx-auto mb-2 mb-lg-0">
+                            <input class="form-control" id="searchText" type="search" placeholder="Buscar"
+                                aria-label="Search">
+                            <!-- Example split danger button -->
+
+                            <div class="btn-group" id="search-btn-group">
+                                <button type="button" id="btn-searchOption"
+                                    class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Selecciona &nbsp;
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                    <li><a class="dropdown-item" onclick="navbarChoosing(this)"
+                                            href="javascript:void(0)">Curso</a></li>
+                                    <li><a class="dropdown-item" onclick="navbarChoosing(this)"
+                                            href="javascript:void(0)">Escuela</a>
+                                    </li>
+                                    <li><a class="dropdown-item" onclick="navbarChoosing(this)"
+                                            href="javascript:void(0)">Categoría
+                                        </a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
+                                </ul>
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+
+
+
+                            </div>
+                        </ul>
+                    </form>
+                </ul>
+                <ul class="navbar-nav me-auto mx-auto d-flex mb-2 mb-lg-0 text-center" id="navMainMenu">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home"></i> <br>
+                            Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="javascript:void(0)" onclick="signUp('Escuela')"> <i
+                                class="fas fa-chalkboard-teacher"></i>
+                            <br> Quiero
+                            enseñar</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" onclick="$('#logIn').modal('show');" href="javascript:void(0)"
+                            tabindex="-1"><i class="fas fa-sign-in-alt"></i> <br>
+                            Iniciar sesión</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="javascript:void(0)" onclick="signUp('Alumno')" tabindex="-1">
+                            <i class="fas fa-user-plus"></i> <br>
+                            Regístrate</a>
+                    </li>
+                </ul>
+
+
             </div>
         </div>
-        <hr>
-        <hr>
-        <div class="row">
-            <div class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
-                <img src="assets/img/visual-studio.jpg" class="img-fluid img-thumbnail "
-                    style="border: 4px outset #770CF5;" alt="">
-            </div>
-            <div class="col-lg-6 col-sm-12">
-                <p><strong class="align-middle">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis,
-                        molestias.</strong></p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora eligendi dolorum saepe quam
-                    ducimus, perspiciatis minima quas officia modi a sit aperiam adipisci! Nisi magni beatae optio autem
-                    et perspiciatis dignissimos quidem saepe voluptate fugiat, error illum. Dignissimos, tempore quod.
-                </p>
-                <small class="text-muted">Lorem, ipsum dolor.</small>
-            </div>
-            <div
-                class="col-lg-4 col-sm-6 mx-auto text-center d-flex flex-column justify-content-center align-items-center">
-                <small class="text-muted">Precio:</small>
-                <h3><strong>$180.00</strong></h3>
-                <button type="button" class="btn btn-link">Eliminar</button>
-            </div>
-        </div>
-        <hr>
-
-        <div class="row">
-            <div class="col-12">
-                <div class="d-flex flex-column justify-content-center align-items-center">
-                    <h3>Total:</h3>
-                    <h1 class="mb-5"><strong>$330.00</strong></h1>
-
-
-                    <div class="row mt-5" id="datosTarjeta">
-
-
-                        <div class="col-lg-6 col-md-6">
-                            <div class="md-form mb-5">
-                                <i id="numberCard" class="far fa-credit-card fa-2x"></i> <label data-error="wrong"
-                                    data-success="right">&nbsp;Número de
-                                    tarjeta</label>
-                                <input type="number" class="form-control validate" id="NumTarjeta"
-                                    onfocusout="checkNumberLength(this, '#error-numberCard', 16)">
-                                <p id="error-numberCard" class="error-dm" style="display:none;">
-                                    La tarjeta debe ser de 16 digitos.
-                                </p>
-                            </div>
-
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="md-form mb-5">
-                                <i class="fas fa-user-shield fa-2x"></i> <label data-error="wrong"
-                                    data-success="right">&nbsp;Nombre del propietario</label>
-                                <input type="text" class="form-control validate" id="Propietario"
-                                    onfocusout="checkIsEmpty(this, '#error-nameCard')">
-                                <p id="error-nameCard" class="error-dm" style="display:none;">
-                                    No puede dejar vacío este campo.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="md-form mb-5 text-center">
-                                <i class="fas fa-user-slash fa-2x"></i> <label data-error="wrong"
-                                    data-success="right">&nbsp;Fecha de vencimiento</label>
-                                <div class="row">
-                                    <div class="col-5">
-                                        <input type="number" class="form-control validate" placeholder="MM" id="MM">
-                                    </div>
-                                    <div class="col-2">
-                                        <h4>/</h4>
-                                    </div>
-                                    <div class="col-5">
-                                        <input type="number" class="form-control validate" placeholder="AA" id="AA">
-                                    </div>
-                                    <p id="error-expireCard" class="error-dm" style="display:none;">
-                                        Escriba el mes y año con dos digitos.
-                                    </p>
-                                </div>
+    </nav>
 
 
 
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6"></div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="md-form mb-5">
-                                <i class="fas fa-shield-alt fa-2x"></i> <label data-error="wrong"
-                                    data-success="right">&nbsp;Código de Seguridad
-                                </label> <small>&nbsp;Los 3 digitos que están detrás de la tarjeta.</small>
-                                <br>
-                                <input type="number" class="form-control validate" style="width: 50%; display:inline;"
-                                    id="Cod-Seguridad" onfocusout="checkNumberLength(this, '#error-securityCard', 3)">
-                                <p id="error-securityCard" class="error-dm" style="display:none;">
-                                    Debes escribir 3 digitos
-                                </p>
 
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-
-                    <div class="d-grid gap-2 col-lg-2 col-sm-4 mx-auto mb-3">
-                        <button id="btn-buy" class="btn btn-primary " id="closeModal" type="button">
-                            <strong>Comprar</strong></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
     <!--Modal Registrarse-->
     <div class="modal fade" id="signUp" tabindex="-1" aria-labelledby="signUpLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -416,6 +365,7 @@
             </div>
         </div>
     </footer>
+
 </body>
 
 </html>

@@ -21,9 +21,10 @@ $(document).ready(function(){
         let cat_name = $('#newCategoryInput').val();
         let cat_description = $('#newCatDescription').val();
         let div = `<option value="${cat_name}" id="cat-${cat_name}">${cat_name}</option>`;
-        $('#categoryBox').append(div);
+        $('#categoryBoxC').append(div);
         $('#newCatDescription').val("");
         $('#newCategoryInput').val("");
+        
         }
     });
 
@@ -325,20 +326,21 @@ $(document).ready(function(){
 
 function addCategory(e){
 
-    let category = $(e).val();
+    let cat = $(e).val();
+    let category = cat.split(' ').join('-');
     let newId = "courseCategory" + category;
     if(category != ""){
     
     $("#error-categoryCourseC").slideUp(function(){
         let div = `
-    <li id="${newId}" style="display:none;"> <strong class="cursor-pointer" onclick="showDescriptionCategory(this);">${category}</strong>
+    <li id="${newId}" style="display:none;"> <strong class="cursor-pointer" onclick="showDescriptionCategory(this);">${cat}</strong>
     <a class="text-end" href="javascript:void(0)" onclick="showCategoryCB('${category}');">Eliminar</a>
     </li>
     `;
     $("#categories").append(div);
     $("#" + newId).slideDown();
     $("#cat-" + category).hide();
-    $("#categoryBox option:selected").prop("selected", false)
+    $('#categoryBoxC').prop('selectedIndex', 0)
     });
     }
    
@@ -347,20 +349,21 @@ function addCategory(e){
 
 function addCategoryM(e){
 
-    let category = $(e).val();
+    let cat = $(e).val();
+    let category = cat.split(' ').join('-');
     let newId = "courseCategoryM" + category;
     if(category != ""){
     
     $("#error-categoryCourseM").slideUp(function(){
         let div = `
-    <li id="${newId}" style="display:none;"> <strong class="cursor-pointer" onclick="showDescriptionCategory(this);">${category}</strong>
+    <li id="${newId}" style="display:none;"> <strong class="cursor-pointer" onclick="showDescriptionCategory(this);">${cat}</strong>
     <a class="text-end" href="javascript:void(0)" onclick="showCategoryCBM('${category}');">Eliminar</a>
     </li>
     `;
     $("#categoriesM").append(div);
     $("#" + newId).slideDown();
     $("#catM-" + category).hide();
-    $("#categoryBoxM option:selected").prop("selected", false)
+    $('#categoryBoxM').prop('selectedIndex', 0)
     });
     }
    
