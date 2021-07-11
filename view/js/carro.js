@@ -30,12 +30,62 @@ $('#btn-buy').click(function(){
     }
 
     if( numberCard && nameCard && securityCard && aaCard && mmCard){
-        window.location.href='Home.html';
+        //window.location.href='Home.html';
+
+        comprarCursos()
+
     }
 
 });
+
+
         
 });
+
+function comprarCursos(){
+    $.ajax({
+        url: "../controller/comprarCursosController.php",
+        method: "POST",
+        success: function(result){
+            if(result == 1){
+                
+                window.location.href='perfil/perfilAlumno/cursosUsuario.php';
+                
+            }else{
+                console.log(result);
+                alert("Error comprando cursos.");
+            }
+        }
+    })
+}
+
+function borrarCursoCarro(idCurso){
+    let precio = $("#precio"+idCurso).text();
+    let precioTotal = $("#precioTotal").text();
+    
+    $.ajax({
+        data:{
+            "idCurso" : idCurso
+        },
+        url: "../controller/insertarCarroEstudianteControlador.php?Peticion=Borrar",
+        method: "POST",
+        success: function(result){
+            if(result == 1){
+                
+                precioTotal = precioTotal - precio;
+                $("#precioTotal").text(precioTotal)
+                $("#curso"+idCurso).slideUp();
+                
+            }else{
+                console.log(result);
+                alert("Error agregando al carro.");
+            }
+        }
+    })
+
+    
+    //alert(precio);
+}
 
 function checkNumberLength(e, error, l){
     $(error).slideUp("fast");

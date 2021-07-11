@@ -179,3 +179,30 @@ nav.navbar li.nav-item:hover > a {
 .cursor-denied:hover {
   cursor: not-allowed;
 }
+
+.circular--portrait {
+  position: relative;
+  width: 5vw;
+  height: 5vw;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 4px outset #0014f5;
+}
+.circular--portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.betterImages {
+  position: relative;
+  width: 12vw;
+  height: 8vw;
+  overflow: hidden;
+  border: 4px outset #0014f5;
+}
+.betterImages img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

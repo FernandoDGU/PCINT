@@ -1,6 +1,7 @@
 <?php
+session_start();
+include_once '../controller/CarritoControlador.php';
 
-require_once "../controller/HomeControlador.php";
 ?>
 
 <!DOCTYPE html>
@@ -8,51 +9,28 @@ require_once "../controller/HomeControlador.php";
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--css-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="css/miscelaneo.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/carrito.css">
 
     <!--js-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/cf205b582d.js" crossorigin="anonymous"></script>
+    <script src="js/carro.js"></script>
     <script src="js/appNavbar.js"></script>
-    <script src="js/home.js"></script>
-
-    <!-- Plugins -->
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
-    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!--<script src="js/prueba.js"></script>-->
     <link rel="icon" href="assets/img/icon.jpeg">
-    <title>MediaCourse</title>
+    <title>MediaCourse - Carro</title>
+
 </head>
 
 <body>
-    <script>
-        $(document).ready(function() {
-            $('.multiple-items').slick({
-                infinite: true,
-                slidesToShow: 3,
-                slidesToScroll: 3
-            });
-        });
-    </script>
-
-    <style>
-        .checked {
-            color: orange;
-        }
-    </style>
-
-
-    <!-- Navar -->
-
     <?php
 
     if (!isset($_SESSION["correoActual"])) {
@@ -220,144 +198,123 @@ require_once "../controller/HomeControlador.php";
     <?php
     }
     ?>
+    <div class="container mt-5">
+        <small class="h5 text-muted">Los cursos de tu carro:</small>
+        <?php $precioTotal = 0.0;
+        foreach ($cursos as $c) {
+            $precioTotal += $c["precio"]; ?>
+            <div id="curso<?php echo $c["id_curso"]; ?>">
+                <hr>
+                <div class="row">
+                    <div id="idCurso" style="display:none;"><?php echo $c["id_curso"]; ?></div>
+                    <div class="col-lg-2 col-sm-6 mx-auto d-flex flex-column justify-content-center align-items-center">
+                        <img src="../controller/showCourseImage.php?id=<?php echo $c["id_curso"]; ?>" class="img-fluid img-thumbnail" style="border: 4px outset #770CF5;" alt="">
+                    </div>
+                    <div class="col-lg-6 col-sm-12">
+                        <p><strong class="align-middle"><?php echo $c["titulo"]; ?></strong></p>
+                        <p><?php echo $c["descripcion"]; ?></p>
+                        <small class="text-muted">Autor: <?php echo $c["nombre"]; ?></small>
+                    </div>
+                    <div class="col-lg-4 col-sm-12 text-center d-flex flex-column justify-content-center align-items-center">
+                        <small class="text-muted">Precio:</small>
+                        <h3><strong>$</strong><strong id="precio<?php echo $c["id_curso"]; ?>"><?php echo $c["precio"]; ?></strong></h3>
+                        <button type="button" class="btn btn-link" onclick="borrarCursoCarro(<?php echo $c["id_curso"]; ?>)">Eliminar</button>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        <?php } ?>
 
-    <!-- Container other -->
-    <div class="container mt-5" id="">
         <div class="row">
             <div class="col-12">
-                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <h3>Total:</h3>
+                    <h1 class="mb-5"><strong>$</strong><strong id="precioTotal"><?php echo $precioTotal; ?></strong></h1>
 
 
-                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-                    <label id="btn-category" class="btn btn-outline-primary btn-scale" for="btnradio3">Ver todas las categorías</label>
-                </div>
-                <div class="col-12 mt-3">
-                    <div class="scrollmenu" style="display:none;">
-                        <?php foreach ($categorias as $cat) { ?>
-                            <a style="cursor:default;" class="" href="javascript:void(0)" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-placement="top" data-bs-content="<?php echo $cat["descripcion"]; ?>" tabindex="0"><?php echo $cat["nombre"]; ?></a>
-                        <?php } ?>
-                    </div>
-                </div>
-                <h2 class="my-2">Explora los diferentes cursos que hay</h2>
-                <span>Elije entre más de 1000 cursos que hay en video y obten un diploma que engrandezca tu conocimiento
-                </span>
-            </div>
-            <br /><br />
-            <div class="col-12 mt-5">
-                <h3>Más populares</h3>
-                <div class="multiple-items text-center" id="Slides">
+                    <div class="row mt-5" id="datosTarjeta">
 
-                    <?php foreach ($cursosPopulares as $curso) { ?>
-                        <div class="card" style="width: 18rem;">
-                            <?php if (!isset($_SESSION["correoActual"])) { ?>
-                                <div class="betterImages" style="width:50vh; height:30vh;">
-                                    <img src="../controller/showCourseImage.php?id=<?php echo $curso["id_curso"]; ?>" class="cursor-denied" tabindex="0" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="hover focus" data-bs-content="Debes iniciar sesión para ver los detalles.">
-                                </div>
 
-                            <?php } else { ?>
-                                <div class="betterImages" style="width:50vh; height:30vh;">
-                                    <img src="../controller/showCourseImage.php?id=<?php echo $curso["id_curso"]; ?>" class="cursor-pointer" onclick="window.location.href='muestraCurso.php?id=<?php echo $curso["id_curso"]; ?>';">
-                                </div>
-
-                            <?php } ?>
-                            <div class="card-body">
-                                <strong><?php echo $curso["titulo"]; ?></strong>
-                                <p class="card-text"><?php echo $curso["desc_corta"]; ?></p>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="md-form mb-5">
+                                <i id="numberCard" class="far fa-credit-card fa-2x"></i> <label data-error="wrong" data-success="right">&nbsp;Número de
+                                    tarjeta</label>
+                                <input type="number" class="form-control validate" id="NumTarjeta" onfocusout="checkNumberLength(this, '#error-numberCard', 16)">
+                                <p id="error-numberCard" class="error-dm" style="display:none;">
+                                    La tarjeta debe ser de 16 digitos.
+                                </p>
                             </div>
 
                         </div>
-                    <?php } ?>
-
-
-                </div>
-
-
-            </div>
-            <div class="col-12 mt-5">
-                <h3>Más vendidas</h3>
-                <div class="multiple-items text-center " id="Slides">
-
-                    <?php foreach ($cursosMasVendidos as $curso) { ?>
-                        <div class="card" style="width: 18rem;">
-                            <?php if (!isset($_SESSION["correoActual"])) { ?>
-                                <div class="betterImages" style="width:50vh; height:30vh;">
-                                    <img src="../controller/showCourseImage.php?id=<?php echo $curso["id_curso"]; ?>" class="cursor-denied" tabindex="0" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="hover focus" data-bs-content="Debes iniciar sesión para ver los detalles.">
-                                </div>
-
-                            <?php } else { ?>
-                                <div class="betterImages" style="width:50vh; height:30vh;">
-                                    <img src="../controller/showCourseImage.php?id=<?php echo $curso["id_curso"]; ?>" class="cursor-pointer" onclick="window.location.href='muestraCurso.php?id=<?php echo $curso["id_curso"]; ?>';">
-                                </div>
-
-                            <?php } ?>
-                            <div class="card-body">
-                                <strong><?php echo $curso["titulo"]; ?></strong>
-                                <p class="card-text"><?php echo $curso["desc_corta"]; ?></p>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="md-form mb-5">
+                                <i class="fas fa-user-shield fa-2x"></i> <label data-error="wrong" data-success="right">&nbsp;Nombre del propietario</label>
+                                <input type="text" class="form-control validate" id="Propietario" onfocusout="checkIsEmpty(this, '#error-nameCard')">
+                                <p id="error-nameCard" class="error-dm" style="display:none;">
+                                    No puede dejar vacío este campo.
+                                </p>
                             </div>
                         </div>
-                    <?php } ?>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="md-form mb-5 text-center">
+                                <i class="fas fa-user-slash fa-2x"></i> <label data-error="wrong" data-success="right">&nbsp;Fecha de vencimiento</label>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <input type="number" class="form-control validate" placeholder="MM" id="MM">
+                                    </div>
+                                    <div class="col-2">
+                                        <h4>/</h4>
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" class="form-control validate" placeholder="AA" id="AA">
+                                    </div>
+                                    <p id="error-expireCard" class="error-dm" style="display:none;">
+                                        Escriba el mes y año con dos digitos.
+                                    </p>
+                                </div>
 
 
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="container-fluid mt-5 text-center mx-auto d-flex flex-column justify-content-center align-items-center" id="Infocursos">
-        <div class="row py-3">
-            <div class="col-lg-3 ">
-                <img src="https://www.mercadosiete.com/img/team-members/1584724669-8489.jpg" class="img-fluid img-thumbnail rounded-pill ">
-            </div>
-            <div class="col-lg-9 mx-auto d-flex flex-column justify-content-center align-items-center">
-                <h2 class="text-center "><b>El 87 % de las personas que aprenden</b> para el desarrollo
-                    profesional
-                    reportan
-                    beneficios
-                    profesionales, como obtener un ascenso, un aumento o comenzar una nueva carrera
-                </h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6"></div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="md-form mb-5">
+                                <i class="fas fa-shield-alt fa-2x"></i> <label data-error="wrong" data-success="right">&nbsp;Código de Seguridad
+                                </label> <small>&nbsp;Los 3 digitos que están detrás de la tarjeta.</small>
+                                <br>
+                                <input type="number" class="form-control validate" style="width: 50%; display:inline;" id="Cod-Seguridad" onfocusout="checkNumberLength(this, '#error-securityCard', 3)">
+                                <p id="error-securityCard" class="error-dm" style="display:none;">
+                                    Debes escribir 3 digitos
+                                </p>
 
-            </div>
-        </div>
-    </div>
-
-    <div class="container start-50 mt-5">
-        <h2 class=" text-end">Hecha un vistazo a los últimos cursos que se han creado</h2>
-        <br />
-        <div class="multiple-items text-center" id="Slides">
-
-            <?php foreach ($ultimosCursos as $curso) { ?>
-                <div class="card" style="width: 18rem;">
-                    <?php if (!isset($_SESSION["correoActual"])) { ?>
-                        <div class="betterImages" style="width:50vh; height:30vh;">
-                            <img src="../controller/showCourseImage.php?id=<?php echo $curso["id_curso"]; ?>" class="cursor-denied" tabindex="0" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-trigger="hover focus" data-bs-content="Debes iniciar sesión para ver los detalles.">
+                            </div>
                         </div>
 
-                    <?php } else { ?>
-                        <div class="betterImages" style="width:50vh; height:30vh;">
-                            <img src="../controller/showCourseImage.php?id=<?php echo $curso["id_curso"]; ?>" class="cursor-pointer" onclick="window.location.href='muestraCurso.php?id=<?php echo $curso["id_curso"]; ?>';">
-                        </div>
 
-                    <?php } ?>
-                    <div class="card-body">
-                        <strong><?php echo $curso["titulo"]; ?></strong>
-                        <p class="card-text"><?php echo $curso["desc_corta"]; ?></p>
+                    </div>
+
+
+
+                    <div class="d-grid gap-2 col-lg-2 col-sm-4 mx-auto mb-3">
+                        <button id="btn-buy" class="btn btn-primary " id="closeModal" type="button">
+                            <strong>Comprar</strong></button>
+                    </div>
+                    <hr>
+                    <div class="d-grid gap-2 col-lg-2 col-sm-4 mx-auto mb-3">
+                        <strong>Pagar con Paypal:</strong>
+                        <div id="paypal-payment-button"></div>
                     </div>
                 </div>
-            <?php } ?>
-
-
+            </div>
         </div>
+
     </div>
-    <br>
-    <br>
-
-
     <!--Modal Registrarse-->
     <div class="modal fade" id="signUp" tabindex="-1" aria-labelledby="signUpLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <form id="form-SignUp" action="../controller/iniciarSesionControlador.php" method="POST" enctype="multipart/form-data">
-                    <input id="tipoUsuario" name="tipoUsuario" style="display:none;"></input>
+                <form action="" onsubmit="return validateFormSignUp()">
                     <div class="modal-header bg-blueShape2 text-white">
                         <h5 class="modal-title " id="signUpLabel">Registrando...</h5>
                     </div>
@@ -382,7 +339,7 @@ require_once "../controller/HomeControlador.php";
                             <div class="col-12">
                                 <div class="input-group mt-3">
                                     <span class="input-group-text col-lg-3 col-12" id="basic-addon1"><i class="fas fa-user-edit"></i>&nbsp;Nombre de Usuario</span>
-                                    <input type="text" class="form-control" name="userName" id="userName" placeholder="Máximo 20 carácteres" aria-label="Username" aria-describedby="basic-addon1" onfocusout="validateUserName(this)">
+                                    <input type="text" class="form-control" id="userName" placeholder="Máximo 20 carácteres" aria-label="Username" aria-describedby="basic-addon1" onfocusout="validateUserName(this)">
 
                                 </div>
                                 <p id="constrUserName" class="text-danger" style="display:none;">¡Ocupas tener máximo
@@ -391,7 +348,7 @@ require_once "../controller/HomeControlador.php";
                             <div class="col-12">
                                 <div class="input-group mt-3">
                                     <span class="input-group-text col-lg-3 col-12" id="basic-addon1"><i class="fas fa-envelope"></i>&nbsp;Correo Electrónico</span>
-                                    <input name="emailUser" type="text" class="form-control" id="userEmail" placeholder="Máximo 50 carácteres" aria-label="Username" aria-describedby="basic-addon1" onfocusout="validateEmailUser(this)">
+                                    <input type="text" class="form-control" id="userEmail" placeholder="Máximo 50 carácteres" aria-label="Username" aria-describedby="basic-addon1" onfocusout="validateEmailUser(this)">
                                 </div>
                                 <p id="constrEmail1" class="text-danger" style="display:none;">¡Introduce un Correo
                                     Electrónico válido!</p>
@@ -404,7 +361,7 @@ require_once "../controller/HomeControlador.php";
                                 <div class="input-group mt-3">
                                     <span class="input-group-text col-lg-3 col-12" id="basic-addon1"><i class="fas fa-key"></i>&nbsp;
                                         Contraseña</span>
-                                    <input type="password" class="form-control" name="userPass" id="userPass" placeholder="Mínimo 8 carácteres, 1 mayúscula, 1 número y carácter especial" aria-label="Username" aria-describedby="basic-addon1" onfocusout="validateUserPass(this)">
+                                    <input type="password" class="form-control" id="userPass" placeholder="Mínimo 8 carácteres, 1 mayúscula, 1 número y carácter especial" aria-label="Username" aria-describedby="basic-addon1" onfocusout="validateUserPass(this)">
                                 </div>
                                 <a id="specialChars" class="text-decoration" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="@#$%^&+*!=">
                                     <small class="cursor-pointer">*Carácteres Especiales</small>
@@ -419,9 +376,8 @@ require_once "../controller/HomeControlador.php";
 
                     </div>
                     <div class="modal-footer text-center">
-                        <small id="signUp-error" class="text-danger" style="display:none;">Ya hay un usuario con ese Correo.</small>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
-                        <button id="btn-SignUp" type="submit" class="btn btn-success">Registrar</button>
+                        <button type="submit" class="btn btn-success">Registrar</button>
                     </div>
                 </form>
             </div>
@@ -432,7 +388,7 @@ require_once "../controller/HomeControlador.php";
     <div class="modal fade" id="logIn" tabindex="-1" aria-labelledby="logInLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <form id="form-LogIn" action="../controller/iniciarSesionControlador.php" method="POST">
+                <form action="" onsubmit="return validateFormLogIn()">
                     <div class="modal-header bg-blueShape2 text-white">
                         <h5 class="modal-title " id="logInLabel">Iniciando sesión...</h5>
                     </div>
@@ -448,7 +404,7 @@ require_once "../controller/HomeControlador.php";
                                 <div class="input-group mt-3">
 
                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-envelope"></i></span>
-                                    <input name="emailUser" type="text" class="form-control" id="userEmailLI" placeholder="..." aria-label="Username" aria-describedby="basic-addon1" onfocusout="validateEmailUserLI(this)">
+                                    <input type="text" class="form-control" id="userEmailLI" placeholder="..." aria-label="Username" aria-describedby="basic-addon1" onfocusout="validateEmailUserLI(this)">
                                 </div>
                                 <p id="constrEmailLI" class="text-danger" style="display:none;">¡Introduce un Correo
                                     Electrónico válido!</p>
@@ -468,9 +424,8 @@ require_once "../controller/HomeControlador.php";
 
                     </div>
                     <div class="modal-footer text-center">
-                        <small id="logIn-error" class="text-danger" style="display:none;">El Correo y/o Contraseña están mal</small>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Salir</button>
-                        <button id="btn-LogIn" type="submit" class="btn btn-primary" onclick="validateFormLogIn()">Iniciar</button>
+                        <button type="submit" class="btn btn-primary">Iniciar</button>
                     </div>
                 </form>
             </div>
@@ -495,5 +450,8 @@ require_once "../controller/HomeControlador.php";
         </div>
     </footer>
 </body>
+<script src="https://www.paypal.com/sdk/js?client-id=AZKIlrn7DuTZg8MQwqe7dQWgMhYfIMJUuPJ5rAOqrPESADS1k6W5hJq-NX_cGievuRN2Snt6spH04b3p&disable-funding=credit,card"></script>
+<script src="js/paypal.js">
+</script>
 
 </html>

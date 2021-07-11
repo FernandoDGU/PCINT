@@ -7,6 +7,79 @@ $(document).ready(function(){
             return new bootstrap.Popover(popoverTrigger);
         });
 
+        $("#btn-SignUp").click(function(e){
+            e.preventDefault();
+            $("#signUp-error").slideUp();
+            let userPass = validateUserPass("#userPass");
+            let userName = validateUserName("#userName");
+            let userProfilePic = validateProfilePic("#profilePic");
+            let userEmail = validateEmailUser("#userEmail");
+        
+            /*let name = $("#userName").val();
+            let pass = $("#userPass").val();
+            let pic =  $("#profilePic").val();
+            let email = $("#userEmail").val();
+            */
+            
+            rol = $("#tipoUsuario").val();
+
+            
+            if(userPass && userName && userEmail && userProfilePic){
+                var form = $('#form-SignUp')[0];
+                var data = new FormData(form);
+                $.ajax({
+                    type: "POST",
+                    url: "../controller/RegistrarControladorAJAX.php",
+                    enctype: 'multipart/form-data',
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    success: function(result){
+                        if(result == 1){
+                            
+                            $("#form-SignUp").submit();
+                        }else if(result == 0){
+                            $("#signUp-error").slideDown();
+                        }
+                        else{
+                            console.log(result);
+                        }
+                    }
+                });
+            }
+                
+        });
+
+        $("#btn-LogIn").click(function(e){
+            e.preventDefault();
+            $("#logIn-error").slideUp();
+            let userPass = validateUserPassLI("#userPassLI");
+            let userEmail = validateEmailUserLI("#userEmailLI");
+            let email = $("#userEmailLI").val();
+            let pass = $("#userPassLI").val();
+            
+            if(userPass && userEmail){
+            $.ajax({
+                data:{
+                    "emailAJAX" : email,
+                    "passAJAX" : pass
+                },
+                url: "../controller/iniciarSesionControladorAJAX.php",
+                method: "POST",
+                success: function(result){
+                    if(result){
+                        
+                        $("#form-LogIn").submit();
+                    }else{
+                        $("#logIn-error").slideDown();
+                    }
+                }
+            });
+            }
+            
+        });
+
+        
         
 });
 
@@ -18,14 +91,15 @@ function navbarChoosing(e){
 function searchCondition(){
     let option = $("#btn-searchOption").text();
     let text = $("#searchText").val();
-    if(option == "Selecciona "){
+    option = option.replace(/\s/g, '');
+    if(option == "Selecciona"){
         alert("Selecciona algo");
         return false;
     }else if(text == "") {
         alert("Escribe algo");
         return false;
     }else { 
-        window.location.href='pResultados.html'; 
+        window.location.href=`pResultados.php?option=${option}&text=${text}`; 
         return false;
         
     };
@@ -34,15 +108,18 @@ function searchCondition(){
 function signUp(e){
     $("#userText").empty();
     $(".error-dm").hide();
+    let rol = $("#tipoUsuario");
     switch(e){
         case "Alumno":{
             let text = "¿Qué esperas para registrarte? ¡Con el rol <i> estudiante </i> tendrás acceso a muchos cursos!";
+            rol.val(1);
             $("#userText").append(text);
             $("#signUp").modal('show');
             return false;
         }
         case "Escuela":{
             let text = "Descubre una comunidad de instructores en línea siempre dispuesta a ayudar. Obtén acceso inmediato a todas las herramientas de creación de cursos.";
+            rol.val(0);
             $("#userText").append(text);
             $("#signUp").modal('show');
             return false;
@@ -62,13 +139,23 @@ function validateProfilePic(profilePic){
 }*/
 
 function validateProfilePic(profilePic){
-   
+    $("#constrProfilePic").slideUp("fast");
+    let pic = $(profilePic).val();
+    if(pic){
+        $("#constrProfilePic").slideUp();
+        return true;
+    }
+    else{
+        $("#constrProfilePic").slideDown();
+        return false;
+    }
 }
 
 function validateUserName(userName){
     $("#constrUserName").slideUp("fast");
     let name = $(userName).val();
     if (name.length < 1 || name.length > 20){
+        
         $("#constrUserName").slideDown();
         return false;
     }else{
@@ -121,16 +208,7 @@ function validateUserPass(password){
 
 function validateFormSignUp()
 {
-    let userPass = validateUserPass("#userPass");
-    let userName = validateUserName("#userName");
-    //let userProfilePic = validateProfilePic("#profilePic");
-    let userEmail = validateEmailUser("#userEmail");
-    if(userPass && userName && userEmail){
-        return true;
-    }
-        else {
-            return false;
-        }
+    
     
     
 }
@@ -166,14 +244,7 @@ function validateEmailUserLI(emailUser){
 
 function validateFormLogIn()
 {
-    let userPass = validateUserPassLI("#userPassLI");
-    let userEmail = validateEmailUserLI("#userEmailLI");
-    if(userPass && userEmail){
-        return true;
-    }
-        else {
-            return false;
-        }
+    
     
     
 }

@@ -24,5 +24,4 @@ ol li.transition:hover {
   background-color: #0d6efd;
   color: white;
   transition: 0.5s;
-  cursor: pointer;
 }
